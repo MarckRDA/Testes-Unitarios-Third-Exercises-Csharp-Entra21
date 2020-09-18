@@ -5,31 +5,28 @@ namespace Test.Exercise1
 {
     public class TestExercise1
     {
+        double[] arrayA = new double[]
+        {
+            3, 4.12, 1, -3.4, 5.75, 7, -8, 1, 2.87, -3
+        };
+
+        double[] arrayB = new double[]
+        {
+            -43, 2.6, -7.21, 8, 12.12, 2.1, 34.8, 5, 6, -9.32
+        };
+
+
         [Fact]
         public void Should_Return_A_Twisted_ArrayA()
         {
             //Given
             var exercise1 = new Exercise1();
-            
-            var arrayA = new double[]
-            {
-                3,4,1,34,5,7,8,1,2,3
-            };
-
-            var arrayB = new double[]
-            {
-                43,6,7,8,1,2,34,5,6,9
-            };
-
+                 
             //When
             var result = exercise1.TwistedArrays(arrayA, arrayB);
 
             //Then
-            for (int index = 0; index < arrayA.Length; index++)
-            {
-                Assert.Equal(arrayA[index], result.b[index]);    
-            }
-
+            Assert.Equal(arrayA, result.b);    
         }
 
         [Fact]
@@ -38,24 +35,11 @@ namespace Test.Exercise1
             //Given
             var exercise1 = new Exercise1();
             
-            var arrayA = new double[]
-            {
-                3,4,1,34,5,7,8,1,2,3
-            };
-
-            var arrayB = new double[]
-            {
-                43,6,7,8,1,2,34,5,6,9
-            };
-
             //When
             var result = exercise1.TwistedArrays(arrayA, arrayB);
 
             //Then
-            for (int index = 0; index < arrayB.Length; index++)
-            {
-                Assert.Equal(arrayB[index], result.a[index]);
-            }
+            Assert.Equal(arrayB, result.a);
             
         }
     }
